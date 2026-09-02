@@ -1,0 +1,652 @@
+/* =========================================================
+   기본 설정
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 16px;
+}
+
+
+body {
+  margin: 0;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
+
+  background-color: #f5f7fa;
+  color: #222;
+
+  line-height: 1.6;
+}
+
+
+
+/* =========================================================
+   전체 레이아웃
+   ========================================================= */
+
+.container {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 40px 20px 80px;
+}
+
+
+
+/* =========================================================
+   페이지 헤더
+   ========================================================= */
+
+.page-header {
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+
+.page-header h1 {
+  margin: 0 0 10px;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: #1f2937;
+}
+
+
+.page-header p {
+  margin: 0;
+
+  font-size: 1rem;
+
+  color: #667085;
+}
+
+
+
+/* =========================================================
+   공통 카드
+   ========================================================= */
+
+.card {
+  margin-bottom: 22px;
+
+  padding: 26px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.04);
+}
+
+
+
+/* =========================================================
+   섹션 헤더
+   ========================================================= */
+
+.section-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-bottom: 14px;
+}
+
+
+.section-header h2 {
+  margin: 0;
+}
+
+
+.result-section h2 {
+  margin-top: 0;
+
+  font-size: 1.25rem;
+  color: #1f2937;
+}
+
+
+.section-description {
+  margin: 6px 0 0;
+
+  font-size: 0.9rem;
+
+  color: #667085;
+}
+
+
+
+/* =========================================================
+   의사코드 입력 영역
+   ========================================================= */
+
+.input-section h2 {
+  font-size: 1.25rem;
+}
+
+
+.character-count {
+  flex-shrink: 0;
+
+  font-size: 0.85rem;
+
+  color: #98a2b3;
+}
+
+
+.pseudocode-input {
+  display: block;
+
+  width: 100%;
+  min-height: 280px;
+
+  padding: 18px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+
+  background-color: #ffffff;
+
+  font-family:
+    "Noto Sans KR",
+    sans-serif;
+
+  font-size: 1rem;
+  line-height: 1.7;
+
+  color: #1f2937;
+
+  resize: vertical;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+
+.pseudocode-input::placeholder {
+  color: #98a2b3;
+}
+
+
+.pseudocode-input:focus {
+  outline: none;
+
+  border-color: #4f7cff;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(79, 124, 255, 0.12);
+}
+
+
+
+/* =========================================================
+   예제 영역
+   ========================================================= */
+
+.example-area {
+  display: flex;
+
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 16px;
+}
+
+
+.example-label {
+  margin-right: 2px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: #475467;
+}
+
+
+.example-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+
+.example-buttons button {
+  padding: 7px 12px;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+
+  background-color: #ffffff;
+
+  font-size: 0.85rem;
+
+  color: #475467;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+
+.example-buttons button:hover {
+  background-color: #f2f4f7;
+  border-color: #b9c0ca;
+}
+
+
+
+/* =========================================================
+   입력 버튼 영역
+   ========================================================= */
+
+.input-actions {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 24px;
+}
+
+
+
+/* =========================================================
+   버튼 공통
+   ========================================================= */
+
+button {
+  font-family: inherit;
+}
+
+
+.primary-button,
+.secondary-button {
+  min-height: 44px;
+
+  border-radius: 9px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+
+
+/* =========================================================
+   변환 버튼
+   ========================================================= */
+
+.primary-button {
+  min-width: 150px;
+
+  padding: 11px 24px;
+
+  border: none;
+
+  background-color: #4f7cff;
+
+  color: #ffffff;
+}
+
+
+.primary-button:hover {
+  background-color: #3f68df;
+}
+
+
+.primary-button:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+
+/* =========================================================
+   보조 버튼
+   ========================================================= */
+
+.secondary-button {
+  padding: 9px 16px;
+
+  border: 1px solid #d0d5dd;
+
+  background-color: #ffffff;
+
+  color: #344054;
+}
+
+
+.secondary-button:hover {
+  background-color: #f2f4f7;
+}
+
+
+
+/* =========================================================
+   로딩
+   ========================================================= */
+
+.loading-section {
+  text-align: center;
+
+  color: #475467;
+}
+
+
+.loading-section p {
+  margin: 12px 0 0;
+}
+
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+
+  margin: 0 auto;
+
+  border: 4px solid #e4e7ec;
+  border-top-color: #4f7cff;
+  border-radius: 50%;
+
+  animation:
+    spin 0.8s linear infinite;
+}
+
+
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+
+/* =========================================================
+   AI 요약
+   ========================================================= */
+
+#summary-text {
+  margin-bottom: 0;
+
+  color: #344054;
+}
+
+
+
+/* =========================================================
+   수정 필요 영역
+   ========================================================= */
+
+.revision-section {
+  border-left:
+    5px solid #f59e0b;
+}
+
+
+.feedback-group + .feedback-group {
+  margin-top: 22px;
+}
+
+
+.feedback-group h3 {
+  margin: 0 0 8px;
+
+  font-size: 1rem;
+
+  color: #344054;
+}
+
+
+.feedback-list {
+  margin: 0;
+
+  padding-left: 22px;
+
+  color: #475467;
+}
+
+
+.feedback-list li {
+  margin: 6px 0;
+}
+
+
+
+/* =========================================================
+   지원하지 않는 기능
+   ========================================================= */
+
+.unsupported-section {
+  border-left:
+    5px solid #f59e0b;
+}
+
+
+#unsupported-reason {
+  margin-bottom: 0;
+
+  color: #475467;
+}
+
+
+
+/* =========================================================
+   코드 결과
+   ========================================================= */
+
+.code-section {
+  border-left:
+    5px solid #12b76a;
+}
+
+
+.code-box {
+  overflow-x: auto;
+
+  margin: 18px 0 0;
+
+  padding: 20px;
+
+  border-radius: 10px;
+
+  background-color: #1f2937;
+
+  color: #f9fafb;
+
+  font-family:
+    Consolas,
+    "Courier New",
+    monospace;
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+
+  white-space: pre;
+}
+
+
+.code-box code {
+  font-family: inherit;
+}
+
+
+.copy-message {
+  margin: 10px 0 0;
+
+  text-align: right;
+
+  font-size: 0.85rem;
+
+  color: #039855;
+}
+
+
+
+/* =========================================================
+   오류 영역
+   ========================================================= */
+
+.error-section {
+  border-left:
+    5px solid #f04438;
+}
+
+
+.error-section h2 {
+  color: #b42318;
+}
+
+
+#error-message {
+  margin-bottom: 0;
+
+  color: #475467;
+}
+
+
+
+/* =========================================================
+   숨김
+   ========================================================= */
+
+.hidden {
+  display: none !important;
+}
+
+
+
+/* =========================================================
+   접근성 / 키보드
+   ========================================================= */
+
+button:focus-visible {
+  outline: 3px solid
+    rgba(79, 124, 255, 0.3);
+
+  outline-offset: 2px;
+}
+
+
+
+/* =========================================================
+   모바일
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .container {
+    padding:
+      24px 14px
+      60px;
+  }
+
+
+  .page-header {
+    margin-bottom: 22px;
+  }
+
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+
+  .page-header p {
+    font-size: 0.9rem;
+  }
+
+
+  .card {
+    padding: 20px 16px;
+
+    border-radius: 12px;
+  }
+
+
+  .pseudocode-input {
+    min-height: 240px;
+
+    padding: 14px;
+
+    font-size: 16px;
+  }
+
+
+  .section-header {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+
+  .character-count {
+    align-self: flex-end;
+  }
+
+
+  .example-area {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .primary-button {
+    width: 100%;
+  }
+
+
+  .code-section .section-header {
+    align-items: stretch;
+  }
+
+
+  .secondary-button {
+    width: 100%;
+  }
+
+
+  .code-box {
+    padding: 16px;
+
+    font-size: 0.82rem;
+  }
+
+}
