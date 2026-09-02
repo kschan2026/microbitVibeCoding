@@ -21,7 +21,7 @@ const CONFIG = {
    * 에서 생성된 /exec 주소를 입력한다.
    */
   API_URL:
-    "https://script.google.com/macros/s/여기에_배포_ID/exec",
+    "https://script.google.com/macros/s/AKfycbxKPwKZriLV7CIMDPY1Cz-hUDZ08KWuFh7Wwa-aDMSOdx7U0tKJ4bJkJem84dbm8YSl/exec",
 
 
   /**
