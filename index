@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>micro:bit 의사코드 변환</title>
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+</head>
+
+<body>
+
+  <main class="container">
+
+
+    <!-- =================================================
+         상단 제목
+         ================================================= -->
+
+    <header class="page-header">
+
+      <h1>
+        micro:bit 의사코드 변환
+      </h1>
+
+      <p>
+        작성한 의사코드를 확인하고
+        micro:bit MakeCode 코드로 변환합니다.
+      </p>
+
+    </header>
+
+
+
+    <!-- =================================================
+         의사코드 작성
+         ================================================= -->
+
+    <section
+      class="card input-section"
+      aria-labelledby="input-title"
+    >
+
+      <div class="section-header">
+
+        <h2 id="input-title">
+          의사코드 작성
+        </h2>
+
+        <span
+          id="character-count"
+          class="character-count"
+        >
+          0 / 3000
+        </span>
+
+      </div>
+
+
+      <textarea
+        id="pseudocode-input"
+        class="pseudocode-input"
+        maxlength="3000"
+        spellcheck="false"
+        placeholder="의사코드를 작성하세요."
+      ></textarea>
+
+
+      <!-- 예제 선택 영역 -->
+      <div
+        id="example-area"
+        class="example-area"
+      >
+
+        <span class="example-label">
+          예제
+        </span>
+
+        <div
+          id="example-buttons"
+          class="example-buttons"
+        ></div>
+
+      </div>
+
+
+      <div class="input-actions">
+
+        <button
+          id="convert-button"
+          class="primary-button"
+          type="button"
+        >
+          변환하기
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         로딩
+         ================================================= -->
+
+    <section
+      id="loading-section"
+      class="card loading-section hidden"
+      aria-live="polite"
+    >
+
+      <div class="loading-spinner"></div>
+
+      <p>
+        의사코드를 분석하고 있습니다.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AI가 이해한 내용
+         ================================================= -->
+
+    <section
+      id="summary-section"
+      class="card result-section hidden"
+      aria-labelledby="summary-title"
+    >
+
+      <h2 id="summary-title">
+        AI가 이해한 내용
+      </h2>
+
+      <p id="summary-text"></p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         수정이 필요한 경우
+         ================================================= -->
+
+    <section
+      id="revision-section"
+      class="card result-section revision-section hidden"
+      aria-labelledby="revision-title"
+    >
+
+      <h2 id="revision-title">
+        의사코드를 확인해 주세요
+      </h2>
+
+
+      <!-- 빠진 정보 -->
+
+      <div
+        id="missing-information-area"
+        class="feedback-group hidden"
+      >
+
+        <h3>
+          빠진 정보
+        </h3>
+
+        <ul
+          id="missing-information-list"
+          class="feedback-list"
+        ></ul>
+
+      </div>
+
+
+      <!-- 잘못 작성한 부분 -->
+
+      <div
+        id="feedback-area"
+        class="feedback-group hidden"
+      >
+
+        <h3>
+          수정할 부분
+        </h3>
+
+        <ul
+          id="feedback-list"
+          class="feedback-list"
+        ></ul>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         지원하지 않는 기능
+         ================================================= -->
+
+    <section
+      id="unsupported-section"
+      class="card result-section unsupported-section hidden"
+      aria-labelledby="unsupported-title"
+    >
+
+      <h2 id="unsupported-title">
+        현재 변환할 수 없습니다
+      </h2>
+
+      <p id="unsupported-reason"></p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MakeCode 코드 결과
+         ================================================= -->
+
+    <section
+      id="code-section"
+      class="card result-section code-section hidden"
+      aria-labelledby="code-title"
+    >
+
+      <div class="section-header">
+
+        <div>
+
+          <h2 id="code-title">
+            MakeCode 코드
+          </h2>
+
+          <p class="section-description">
+            아래 코드를 복사하여 MakeCode JavaScript 화면에 붙여넣으세요.
+          </p>
+
+        </div>
+
+
+        <button
+          id="copy-button"
+          class="secondary-button"
+          type="button"
+        >
+          코드 복사
+        </button>
+
+      </div>
+
+
+      <pre class="code-box"><code id="code-output"></code></pre>
+
+
+      <p
+        id="copy-message"
+        class="copy-message hidden"
+        aria-live="polite"
+      >
+        코드가 복사되었습니다.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         시스템 오류
+         ================================================= -->
+
+    <section
+      id="error-section"
+      class="card result-section error-section hidden"
+      aria-labelledby="error-title"
+    >
+
+      <h2 id="error-title">
+        오류가 발생했습니다
+      </h2>
+
+      <p id="error-message">
+        잠시 후 다시 시도해 주세요.
+      </p>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ===================================================
+       JavaScript
+       =================================================== -->
+
+  <script src="js/config.js"></script>
+  <script src="js/examples.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
